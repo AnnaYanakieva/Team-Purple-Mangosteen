@@ -1,0 +1,59 @@
+body {
+    font-size: 18px;
+}
+
+#wrapper {
+    width: 70%;
+    margin: 0 auto;
+}
+
+section,
+aside,
+header,
+ul,
+img {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 0.5em;
+}
+
+h1 {
+    margin-left: 8%;
+}
+
+ul {
+    list-style: none;
+}
+
+#logo {
+    width: 30%;
+}
+
+#logo,
+h1,
+#main-nav>ul>li {
+    display: inline-block;
+}
+
+#main-section {
+    width: 64%;
+    float: left;
+}
+
+aside {
+    width: 30%;
+    float: right;
+}
+
+#main-nav>ul>li {
+    padding: 0.5em;
+}
+
+img {
+    display: block;
+}
+
+#movie-list a {
+    display: block;
+    text-align: center;
+}
