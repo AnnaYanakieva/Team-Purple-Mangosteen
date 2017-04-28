@@ -5,6 +5,11 @@
     <title>Movie Catalog</title>
     <meta charset="UTF-8">
     <link href="css/style.css" rel="stylesheet">
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/shimney-sammy/main.js"></script>
+    <script src="../node_modules/handlebars/dist/handlebars.js"></script>
+    <script src="../node_modules/systemjs/dist/system.js"></script>
+    <script src="./js/system.config.js"></script>
 </head>
 
 <body>
@@ -15,15 +20,14 @@
         </header>
         <nav id="main-nav">
             <ul>
-                <li>Home</li>
-                <li>Catalog</li>
-                <li>Log in/ Register</li>
+                <li><a class="navigation" href="#/">Home</a></li>
+                <li><a class="navigation" href="#/Catalog">Catalog</a></li>
+                <li><a class="navigation" href="#/LogInReg">LogIn/Register</a></li>
             </ul>
         </nav>
         <main>
             <section id="main-section">
-                <h2>Welcome</h2>
-                <p>Some basic info..</p>
+
             </section>
             <aside>
                 <h3>Suggestions</h3>
@@ -48,6 +52,9 @@
             </aside>
         </main>
     </div>
+
+
+    <script src="./js/router.js"></script>
 
 </body>
 
