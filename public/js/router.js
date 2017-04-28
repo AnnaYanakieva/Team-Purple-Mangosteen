@@ -5,7 +5,7 @@ var app = app || {};
 
     app.router = Sammy(function() {
         this.get("#/", function() {
-            $(selector).html("The shit worked!");
+            $(selector).html("Home page!");
         })
 
         this.get("#/Catalog", function() {
