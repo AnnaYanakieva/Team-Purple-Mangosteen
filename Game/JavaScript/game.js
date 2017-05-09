@@ -1,12 +1,12 @@
 			// variables
-			//window.localStorage.clear();
+			// window.localStorage.clear();
 			
 			var snake = new Object;
 			snake['size'];
 			snake['position'];
 
 			var speed = new Object;
-			speed['slow'] = 90;
+			speed['slow'] = 100;
 			speed['medium'] = 75;
 			speed['fast'] = 50;
 			speed['cheetah'] = 40;
@@ -23,7 +23,6 @@
 			snake['dead'];
             
 			var tail;
-			var counter;
 			var prey = new Object;
 			prey['position'];
 			prey['type'];
@@ -32,12 +31,12 @@
 				image.src = "img/" + prey['type']+ ".png";
 				context.drawImage(image,prey['position'][0],prey['position'][1]);
 			};
-			prey['cherry'] = 50;
-			prey['apple'] = 10;
-			prey['grape'] = 5;
-			prey['banana'] = 2;
-			prey['onion'] = 1;
-			var highscores = new Array();
+			prey['cherry'] = 50.0/1;
+			prey['apple'] = 10.0/1;
+			prey['grape'] = 5.0/1;
+			prey['banana'] = 2.0/1;
+			prey['onion'] = 1.0/1;
+			let highscores = new Array();
 			var localStorage = supports_html5_storage();
 			
 			// preload images
@@ -86,7 +85,7 @@
 			
 			function setup()
 			{
-				for(var i = 0;i<localStorage.length;i++)
+				for(var i = 0; i<localStorage.length; i++)
 				{
 					highscores[i] = localStorage[i];
 				}
@@ -104,6 +103,7 @@
 			  	}
 			}
 			
+			let counter = 0;
 			function submit()
 			{
 				highscores[highscores.length] = counter;
@@ -125,11 +125,11 @@
 			}
 			function print_scores()
 			{
-				for(var i = 0;i < highscores.length;i++)
+				for(var i = 0; i < highscores.length; i++)
 				{
 					highscores.sort(function(a, b) {
                         return a<b;
-                    });
+                    })
 					document.getElementById("score"+ (i+1)).innerHTML = highscores[i];
 					if(localStorage)
 					{
@@ -139,7 +139,7 @@
 			}
 			function count()
 			{
-				counter += (3000 / (speed[snake['speed']]))*(prey[prey['type']]);
+				counter += (1500 / (speed[snake['speed']]))*(prey[prey['type']]);
 				document.getElementById("counter").innerHTML = counter;
 			}
 			function add_tail()
