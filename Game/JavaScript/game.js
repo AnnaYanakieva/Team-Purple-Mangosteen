@@ -1,5 +1,5 @@
 			// variables
-			// window.localStorage.clear();
+			// window.localStorage.clear(); /// clear scoring history
 			
 			var snake = new Object;
 			snake['size'];
@@ -155,7 +155,6 @@
 				tail[0] = snake['position'].slice(0);				
 				snake['position'][0] += direction[snake['direction']][0];
 				snake['position'][1] += direction[snake['direction']][1];
-				// too pythonic --> snake['position'] = (a+b for a, b in snake['position'], direction[snake['direction']])
 			}
 		
 			function check_collision()
