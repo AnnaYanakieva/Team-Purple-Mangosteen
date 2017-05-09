@@ -1,4 +1,6 @@
 			// variables
+			
+			// let username = // get the username
 			// window.localStorage.clear(); /// clear scoring history
 			
 			var snake = new Object;
