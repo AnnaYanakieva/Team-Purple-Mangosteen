@@ -67,6 +67,6 @@ function startGame() {
     localStorage.setItem('username', $('#name-field').val());
 
     setTimeout(function() {
-        document.location = "hero-selection.html";
+        document.location = "game.html";
     }, 2000);
 }

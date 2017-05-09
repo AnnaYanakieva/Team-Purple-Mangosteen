@@ -1,35 +1,24 @@
-<!DOCTYPE html>
 <html>
-	<head>
-		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
-		<title>Canvas Test</title>
-		<link rel="stylesheet" href="layout.css" />
-		<script src="game.js"></script>
-		<script src="excanvas.compiled.js"></script>
-	</head>
-	<body onload="setup()">
-		<div id="counter"></div>
-		<div id="container"><canvas id="screen" width="400" height="400">Canvas not working!</canvas></div>
-		<div id="button">
-			<select id="speed">
-				<option value="slow">Slow</option>
-				<option value="medium">Medium</option>
-				<option value="fast">Fast</option>
-				<option value="cheetah">Cheetah</option>
-				<option value="insane">Insane!</option>
-			</select>
-			<button onclick="game()">Go</button>
-		</div>
-		<div id="result"></div>
-		<div id="highscores">
-			<h2>High Scores</h2><br />
-			<h4>
-				<img src="img/cherry.png"/> - <span id="score1"></span><br />
-				<img src="img/apple.png"/> - <span id="score2"></span><br />
-				<img src="img/grape.png"/> - <span id="score3"></span><br />
-				<img src="img/banana.png"/> - <span id="score4"></span><br />
-				<img src="img/onion.png"/> - <span id="score5"></span>
-			</h4>
-		</div>
-	</body>
-</html>
+
+<head>
+    <script src="JavaScript/Jquery/jquery-3.2.0.min.js"></script>
+    <link rel="stylesheet" href="CSS/style-index.css" />
+    <script src="JavaScript/Intro/introSequence.js"></script>
+</head>
+
+<body onload="setTimeout(initial(),3000)">
+    <img id="team" class="initial" src="img/team.png" />
+    <img id="image" class="initial" src="img/h1.png" />
+    <div id="login-area">
+        <img class="initial" id="logo" src="img/logo.png" />
+        <input type="text" class="initial" id="name-field" placeholder="Enter Your Name Here!" />
+        <div id="tip-arrow" class="initial">
+            <h2> Use the Arrow Keys to Move </h2>
+            <img id="arrows" src="img/arrows.png" />
+        </div>
+        <img id="start-button" src="img/start-button.png" onclick="startGame()" />
+        <img class="initial" id="right-hero" src="img/snake.png" />
+        <img class="initial" id="left-hero" src="img/snake.png" />
+    </div>
+</body>
+
