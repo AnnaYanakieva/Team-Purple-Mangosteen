@@ -1,22 +1,27 @@
 			// variables
+			//window.localStorage.clear();
 			
 			var snake = new Object;
 			snake['size'];
 			snake['position'];
+
 			var speed = new Object;
-			speed['slow'] = 100;
+			speed['slow'] = 90;
 			speed['medium'] = 75;
 			speed['fast'] = 50;
 			speed['cheetah'] = 40;
 			speed['insane'] = 25;
 			snake['speed'];
+
 			var direction = new Object;
 			direction['up'] = [0,-10];
 			direction['down'] = [0,10];
 			direction['left'] = [-10,0];
 			direction['right'] = [10,0];
+
 			snake['direction'];
 			snake['dead'];
+            
 			var tail;
 			var counter;
 			var prey = new Object;
@@ -24,7 +29,7 @@
 			prey['type'];
 			prey['draw'] = function(context) {
 				var image = new Image();
-				image.src = prey['type']+ ".png";
+				image.src = "img/" + prey['type']+ ".png";
 				context.drawImage(image,prey['position'][0],prey['position'][1]);
 			};
 			prey['cherry'] = 50;
@@ -40,43 +45,43 @@
 			{
 				var img = new Array();
 				img[0] = new Image();
-				img[0].src = 'apple.png';
+				img[0].src = 'img/apple.png';
 				img[1] = new Image();
-				img[1].src = 'banana.png';
+				img[1].src = 'img/banana.png';
 				img[2] = new Image();
-				img[2].src = 'cherry.png';
+				img[2].src = 'img/cherry.png';
 				img[3] = new Image();
-				img[3].src = 'grape.png';
+				img[3].src = 'img/grape.png';
 				img[4] = new Image();
-				img[4].src = 'headdown.png';
+				img[4].src = 'img/headdown.png';
 				img[5] = new Image();
-				img[5].src = 'headleft.png';
+				img[5].src = 'img/headleft.png';
 				img[6] = new Image();
-				img[6].src = 'headright.png';
+				img[6].src = 'img/headright.png';
 				img[7] = new Image();
-				img[7].src = 'headup.png';
+				img[7].src = 'img/headup.png';
 				img[8] = new Image();
-				img[8].src = 'leftbottom.png';
+				img[8].src = 'img/leftbottom.png';
 				img[9] = new Image();
-				img[9].src = 'lefttop.png';
+				img[9].src = 'img/lefttop.png';
 				img[10] = new Image();
-				img[10].src = 'onion.png';
+				img[10].src = 'img/onion.png';
 				img[11] = new Image();
-				img[11].src = 'rightbottom.png';
+				img[11].src = 'img/rightbottom.png';
 				img[12] = new Image();
-				img[12].src = 'righttop.png';
+				img[12].src = 'img/righttop.png';
 				img[13] = new Image();
-				img[13].src = 'tailendbottom.png';
+				img[13].src = 'img/tailendbottom.png';
 				img[14] = new Image();
-				img[14].src = 'tailendleft.png';
+				img[14].src = 'img/tailendleft.png';
 				img[15] = new Image();
-				img[15].src = 'tailendright.png';
+				img[15].src = 'img/tailendright.png';
 				img[16] = new Image();
-				img[16].src = 'tailendtop.png';
+				img[16].src = 'img/tailendtop.png';
 				img[17] = new Image();
-				img[17].src = 'tailmiddle.png';
+				img[17].src = 'img/tailmiddle.png';
 				img[18] = new Image();
-				img[18].src = 'tailmiddlehorizontal.png';
+				img[18].src = 'img/tailmiddlehorizontal.png';
 			}
 			
 			function setup()
@@ -122,6 +127,9 @@
 			{
 				for(var i = 0;i < highscores.length;i++)
 				{
+					highscores.sort(function(a, b) {
+                        return a<b;
+                    });
 					document.getElementById("score"+ (i+1)).innerHTML = highscores[i];
 					if(localStorage)
 					{
@@ -249,11 +257,11 @@
 			{
 				if (prev[1] == block[1] && block[1] == next[1])
 				{
-					return "tailmiddlehorizontal.png";
+					return "img/tailmiddlehorizontal.png";
 				}
 				else if (prev[0] == block[0] && block[0] == next[0])
 				{
-					return "tailmiddle.png";
+					return "img/tailmiddle.png";
 				}
 				if (prev[0] == block[0])
 				{
@@ -293,7 +301,7 @@
 						var topbottom = "top";
 					}
 				}
-				return leftright + topbottom + ".png";
+				return "img/" + leftright + topbottom + ".png";
 			}
 			
 			function draw()
@@ -302,7 +310,7 @@
 				var context = canvas.getContext("2d");
 				context.clearRect(0,0,400,400);
 				var image = new Image();
-				image.src = "head" + snake['direction'] + ".png";
+				image.src = "img/head" + snake['direction'] + ".png";
 				context.drawImage(image,snake['position'][0],snake['position'][1]);
 				for (var i = 0;i < tail.length-1;i++)
 				{
@@ -320,19 +328,19 @@
 				var image = new Image();
 				if (tail[tail.length-2][0] == tail[tail.length-1][0] && tail[tail.length-2][1] > tail[tail.length-1][1])
 				{
-					image.src = "tailendbottom.png";
+					image.src = "img/tailendbottom.png";
 				}
 				else if (tail[tail.length-2][0] == tail[tail.length-1][0] && tail[tail.length-2][1] < tail[tail.length-1][1])
 				{
-					image.src = "tailendtop.png";
+					image.src = "img/tailendtop.png";
 				}
 				else if (tail[tail.length-2][0] > tail[tail.length-1][0] && tail[tail.length-2][1] == tail[tail.length-1][1])
 				{
-					image.src = "tailendright.png";
+					image.src = "img/tailendright.png";
 				}
 				else if (tail[tail.length-2][0] < tail[tail.length-1][0] && tail[tail.length-2][1] == tail[tail.length-1][1])
 				{
-					image.src = "tailendleft.png";
+					image.src ="img/tailendleft.png";
 				}
 				context.drawImage(image,tail[tail.length-1][0],tail[tail.length-1][1]);
 				prey['draw'](context);
