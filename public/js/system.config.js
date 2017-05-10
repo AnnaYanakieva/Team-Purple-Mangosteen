@@ -16,3 +16,4 @@ SystemJS.config({
 });
 
 System.import("main");
+window.localStorage.clear();

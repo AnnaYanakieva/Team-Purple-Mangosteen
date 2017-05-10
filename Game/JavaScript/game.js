@@ -1,7 +1,7 @@
 			// variables
+			//window.localStorage.clear(); /// clear scoring history
 			
-			// let username = // get the username
-			// window.localStorage.clear(); /// clear scoring history
+			let counter = 0;
 			
 			var snake = new Object;
 			snake['size'];
@@ -87,12 +87,21 @@
 			
 			function setup()
 			{
+				printUsername();
 				for(var i = 0; i<localStorage.length; i++)
 				{
 					highscores[i] = localStorage[i];
 				}
-				print_scores();
+				printScores();
 			}
+			
+			function printUsername()
+			{
+				// const username = localStorage.getItem('username'); // if we use localStorage for username
+				const username = window.location.hash.toString().split("/:")[1];
+				document.getElementById("username").innerHTML = username;
+			}
+			
 			function supports_html5_storage() 
 			{
 				try 
@@ -105,49 +114,53 @@
 			  	}
 			}
 			
-			let counter = 0;
 			function submit()
 			{
-				highscores[highscores.length] = counter;
-				highscores.sort(function (one, other) {
-					return other - one;
-				});
+				for(let i = 0; i < 5; i++)
+				{
+					if(highscores[i] > -1){
+					localStorage[i] = highscores[i];
+					} else{
+					localStorage[i] = 0;
+					}				
+				}
 			}
+			
 			function check_score()
 			{
-				if(highscores.length < 5)
+				for(let i = 0; i < 5; i++)
 				{
-					submit();
-				}
-				else
-				{
-					submit();
-					highscores.pop();
-				}
-			}
-			function print_scores()
-			{
-				for(var i = 0; i < highscores.length; i++)
-				{
-					highscores.sort(function(a, b) {
-                        return a<b;
-                    })
-					document.getElementById("score"+ (i+1)).innerHTML = highscores[i];
-					if(localStorage)
-					{
-						localStorage[i] = highscores[i];
+					if(localStorage[i]){
+						highscores[i] = localStorage[i];
 					}
 				}
+				
+				highscores[6] = counter;
+				highscores.sort(function (a, b) {
+                        return b - a;
+				});
+				submit();
 			}
+			
+			function printScores()
+			{
+				for(var i = 0; i < 5; i++) // 5 top positions
+				{					
+					document.getElementById("score"+ (i+1)).innerHTML = localStorage[i].toString();
+				}
+			}
+			
 			function count()
 			{
 				counter += (1500 / (speed[snake['speed']]))*(prey[prey['type']]);
 				document.getElementById("counter").innerHTML = counter;
 			}
+			
 			function add_tail()
 			{
 				tail[tail.length] = [-100,100];
 			}
+			
 			function move_snake()
 			{
 				for(var i = tail.length-1;i > 0;i--)
@@ -183,6 +196,7 @@
 					}
 				}
 			}
+			
 			function check_pos_valid(pos)
 			{
 				if(pos === snake['position'])
@@ -198,6 +212,7 @@
 				}
 				return true;
 			}
+			
 			function make_prey()
 			{
 				var pos = [Math.floor(Math.random()*40),Math.floor(Math.random()*40)];
@@ -228,6 +243,7 @@
 					prey['type'] = 'onion';
 				}
 			}
+			
 			function keyListener(e)
 			{
 				if(!snake['dead'])
@@ -254,6 +270,7 @@
 					}
 				}
 			}
+			
 			function determine_block(prev,block,next)
 			{
 				if (prev[1] == block[1] && block[1] == next[1])
@@ -326,6 +343,7 @@
 					}
 					context.drawImage(image,tail[i][0],tail[i][1]);
 				}
+				
 				var image = new Image();
 				if (tail[tail.length-2][0] == tail[tail.length-1][0] && tail[tail.length-2][1] > tail[tail.length-1][1])
 				{
@@ -346,6 +364,7 @@
 				context.drawImage(image,tail[tail.length-1][0],tail[tail.length-1][1]);
 				prey['draw'](context);
 			}
+			
 			function step()
 			{
 				move_snake();
@@ -356,7 +375,7 @@
 					document.getElementById("result").innerHTML = "You Died!";
 					document.getElementById("button").style.visibility = 'visible';
 					check_score();
-					print_scores();
+					printScores();
 				}
 				else
 				{
@@ -364,6 +383,7 @@
 				}
 
 			}
+			
 			function wait_for_step()
 			{
 				setTimeout('step()',speed[snake['speed']]);

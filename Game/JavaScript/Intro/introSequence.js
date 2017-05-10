@@ -64,9 +64,9 @@ function startGame() {
     $("#right-hero").animate({ right: '-50%' }, 1200);
     $("#start-button").animate({ top: '110%' }, 1200);
 
-    localStorage.setItem('username', $('#name-field').val());
+    //localStorage.setItem('username', $('#name-field').val()); // if we want to use localStorage for username
 
     setTimeout(function() {
-        document.location = ("game.html#" + $('#name-field').val());
+        document.location = ("game.html#items?username/:" + $('#name-field').val());
     }, 2000);
 }
