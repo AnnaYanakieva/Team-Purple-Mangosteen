@@ -1,5 +1,5 @@
 body {
-	background: #ecd0f2;
+	background: #ffffff;
 }
 
 canvas {
@@ -84,4 +84,20 @@ button {
 	background: #ffffff;
 	border: 1px solid black;
 	border-radius: 10px;
+}
+
+#right-hero {
+    width: 298px;
+    height: 298px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+#left-hero {
+    width: 298px;
+    height: 298px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }
