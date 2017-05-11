@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
 		<title>Snake game</title>
 		<link rel="stylesheet" href="CSS/game.css" />
 		<script src="JavaScript/game.js"></script>
 		<script src="JavaScript/excanvas.compiled.js"></script>
 	</head>
 	<body onload="setup()">
+		<div id="facebook" >
+			<iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Ftelerikacademy.com%2F&width=116&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId" width="105" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+		</div>
 		<div id="username"></div>
 		<div id="counter"></div>
 		<div id="container"><canvas id="screen" width="400" height="400">Canvas not working!</canvas></div>
@@ -23,7 +25,7 @@
 		</div>
 		<div id="result"></div>
 		<div id="highscores">
-			<h2>High Scores</h2><br />
+			<h2>High Scores</h2><br/>
 			<h4>
 				<img src="img/cherry.png"/> - <span id="score1"></span><br />
 				<img src="img/apple.png"/> - <span id="score2"></span><br />

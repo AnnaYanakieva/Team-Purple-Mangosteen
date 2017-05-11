@@ -1,25 +1,27 @@
+<!DOCTYPE html>
 <html>
-
-<head>
-    <script src="JavaScript/Jquery/jquery-3.2.0.min.js"></script>
-    <link rel="stylesheet" href="CSS/style-index.css" />
-    <script src="JavaScript/Intro/introSequence.js"></script>
-</head>
-
-<body onload="setTimeout(initial(),3000)">
-    <img id="team" class="initial" src="img/team.png" />
-    <img id="image" class="initial" src="img/h1.png" />
-    <div id="login-area">
-        <img class="initial" id="logo" src="img/logo.png" />
-        <input type="text" class="initial" id="name-field" placeholder="Enter Your Name Here!" />
-        <div id="tip-arrow" class="initial">
-            <h2> Use the Arrow Keys to Move </h2>
-            <img id="arrows" src="img/arrows.png" />
-        </div>
-        <img id="start-button" src="img/start-button.png" onclick="startGame()" />
-        <img class="initial" id="right-hero" src="img/snake.png" />
-        <img class="initial" id="left-hero" src="img/snake.png" />
-		<iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Ftelerikacademy.com%2F&width=116&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId" width="105" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-    </div>
-</body>
-
+	<head>
+		<title>Snake game</title>
+		<script src="JavaScript/Jquery/jquery-3.2.0.min.js"></script>
+		<link rel="stylesheet" href="CSS/style-index.css" />
+		<script src="JavaScript/Intro/introSequence.js"></script>
+	</head>
+	<body onload="setTimeout(initial(),3000)">
+		<div id="facebook" >
+			<iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Ftelerikacademy.com%2F&width=116&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId" width="105" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+		</div>
+		<img id="team" class="initial" src="img/team.png" />
+		<img id="image" class="initial" src="img/h1.png" />
+		<div id="login-area">
+			<img class="initial" id="logo" src="img/logo.png" />
+			<input type="text" class="initial" id="name-field" placeholder="Enter Your Name Here!" />
+			<div id="tip-arrow" class="initial">
+				<h2> Use the Arrow Keys to Move </h2>
+				<img id="arrows" src="img/arrows.png" />
+			</div>
+			<img id="start-button" src="img/start-button.png" onclick="startGame()" />
+			<img class="initial" id="right-hero" src="img/snake.png" />
+			<img class="initial" id="left-hero" src="img/snake.png" />
+		</div>
+	</body>
+</html>

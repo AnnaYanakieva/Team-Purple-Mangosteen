@@ -15,16 +15,14 @@ html, body {
     left: 50%;
     width: 630px;
     height: 100px;
-    margin-top: -50px; /* Half the height */
-    margin-left: -315px; /* Half the width */
+    margin-top: -50px; 
+    margin-left: -315px; 
 }
 
 #image {
-    /*width: 100%;
-    height: 100%;*/
-    position: center;
-    top: 0;
-    left: 0;
+    position: absolute;
+	margin-top: -50px;
+	margin-left: 40%;
 }
 
 #right-hero {
@@ -49,8 +47,8 @@ html, body {
     left: 50%;
     width: 390px;
     height: 118px;
-    margin-top: -59px; /* Half the height */
-    margin-left: -195px; /* Half the width */
+    margin-top: -59px; 
+    margin-left: -195px; 
 }
 
 #name-field {
@@ -59,8 +57,8 @@ html, body {
     left: 50%;
     width: 400px;
     height: 40px;
-    margin-top: -20px; /* Half the height */
-    margin-left: -200px; /* Half the width */
+    margin-top: -20px; 
+    margin-left: -200px; 
     font-size: 22px;
     text-align: center;
     color: #113f7f;
@@ -77,8 +75,8 @@ html, body {
     left: 50%;
     width: 603px;
     height: 135px;
-    margin-top: -67px; /* Half the height */
-    margin-left: -301px; /* Half the width */
+    margin-top: -67px; 
+    margin-left: -301px; 
 }
 
 #start-button:hover {
@@ -92,8 +90,8 @@ html, body {
     left: 50%;
     width: 600px;
     height: 200px;
-    margin-top: -100px; /* Half the height */
-    margin-left: -200px; /* Half the width */
+    margin-top: -100px; 
+    margin-left: -150px; 
 }
 
 #tip-arrow h2 {

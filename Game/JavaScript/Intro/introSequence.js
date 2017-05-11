@@ -44,15 +44,12 @@ function showNameField() {
 
 function showHints() {
     $("#tip-arrow")
-        .show(700, function() {});
-    $("#tip-spacebar")
-        .show(700, function() {
-            showStartButton()
-        });
+        .show(700, function() {  showStartButton()
+		});
 }
 
 function showStartButton() {
-    $("#start-button").animate({ top: '85%' }, 2000);
+    $("#start-button").animate({ top: '85%' }, 1000);
 }
 
 function startGame() {
